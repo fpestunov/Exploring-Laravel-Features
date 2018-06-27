@@ -16,5 +16,21 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    // 3
+    $name = 'Mikkie';
+    $age = 23;
+    $tasks = [
+        'Go to the store',
+        'Make dinner',
+        'Clean the house'
+    ];
+    return view('about', compact('name', 'age', 'tasks'));
+
+    // 2
+    // return view('about')->with('name', 'Jane');
+
+    // 1
+    // return view('about', [
+    //     'name' => 'World II'
+    // ]);
 });
