@@ -19,11 +19,14 @@ Route::get('/about', function () {
     // 3
     $name = 'Mikkie';
     $age = 23;
-    $tasks = [
-        'Go to the store',
-        'Make dinner',
-        'Clean the house'
-    ];
+
+    // Query Builder
+    // https://laravel.com/docs/5.4/queries
+
+    // return JSON 
+    $tasks = DB::table('tasks')->get(); 
+    $tasks = DB::table('tasks')->latest()->get();
+
     return view('about', compact('name', 'age', 'tasks'));
 
     // 2
