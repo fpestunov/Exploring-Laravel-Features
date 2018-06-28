@@ -40,6 +40,8 @@ Route::get('/tasks', function () {
 
     $tasks = DB::table('tasks')->latest()->get();
 
+    $tasks = App\Task::all();
+
     return view('tasks.index', compact('tasks'));
 
 });
