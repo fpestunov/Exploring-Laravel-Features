@@ -10,4 +10,9 @@ class Task extends Model
     {
         return false;
     }
+
+    public static function incomplete()
+    {
+        return static::where('completed', 0)->get();
+    }
 }

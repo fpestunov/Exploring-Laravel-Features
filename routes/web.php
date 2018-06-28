@@ -27,6 +27,9 @@ Route::get('/tasks', function () {
 
     $tasks = Task::all();
 
+    $tasks = Task::where('completed', 0)->get();
+    $tasks = Task::incomplete();
+
     return view('tasks.index', compact('tasks'));
 
 });
