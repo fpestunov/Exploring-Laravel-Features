@@ -20,14 +20,7 @@ Route::get('/about', function () {
     $name = 'Mikkie';
     $age = 23;
 
-    // Query Builder
-    // https://laravel.com/docs/5.4/queries
-
-    // return JSON 
-    $tasks = DB::table('tasks')->get(); 
-    $tasks = DB::table('tasks')->latest()->get();
-
-    return view('about', compact('name', 'age', 'tasks'));
+    return view('about', compact('name', 'age'));
 
     // 2
     // return view('about')->with('name', 'Jane');
@@ -36,6 +29,19 @@ Route::get('/about', function () {
     // return view('about', [
     //     'name' => 'World II'
     // ]);
+});
+
+Route::get('/tasks', function () {
+
+    // Query Builder
+    // https://laravel.com/docs/5.4/queries
+
+    // return JSON 
+
+    $tasks = DB::table('tasks')->latest()->get();
+
+    return view('tasks.index', compact('tasks'));
+
 });
 
 Route::get('/tasks/{task}', function ($id) {
