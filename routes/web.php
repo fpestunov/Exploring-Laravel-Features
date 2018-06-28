@@ -37,3 +37,13 @@ Route::get('/about', function () {
     //     'name' => 'World II'
     // ]);
 });
+
+Route::get('/tasks/{task}', function ($id) {
+
+    $task = DB::table('tasks')->find($id);
+
+    //dd($task); // from Helpers function
+
+    return view('tasks.show', compact('task'));
+
+});
