@@ -33,13 +33,6 @@ Route::get('/about', function () {
 
 Route::get('/tasks', function () {
 
-    // Query Builder
-    // https://laravel.com/docs/5.4/queries
-
-    // return JSON 
-
-    $tasks = DB::table('tasks')->latest()->get();
-
     $tasks = App\Task::all();
 
     return view('tasks.index', compact('tasks'));
@@ -48,7 +41,7 @@ Route::get('/tasks', function () {
 
 Route::get('/tasks/{task}', function ($id) {
 
-    $task = DB::table('tasks')->find($id);
+    $task = App\Task::find($id);
 
     //dd($task); // from Helpers function
 
