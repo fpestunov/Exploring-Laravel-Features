@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Task;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,23 +23,6 @@ Route::get('/about', function () {
     return view('about', compact('name', 'age'));
 });
 
-Route::get('/tasks', function () {
-
-    $tasks = Task::all();
-
-    $tasks = Task::where('completed', 0)->get();
-    $tasks = Task::incomplete();
-
-    return view('tasks.index', compact('tasks'));
-
-});
-
-Route::get('/tasks/{task}', function ($id) {
-
-    $task = Task::find($id);
-
-    //dd($task); // from Helpers function
-
-    return view('tasks.show', compact('task'));
-
-});
+// make nice and simple
+Route::get('/tasks', 'TaskController@index');
+Route::get('/tasks/{task}', 'TaskController@show');
