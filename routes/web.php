@@ -27,7 +27,7 @@ Route::get('/about', function () {
 Route::get('/tasks', 'TaskController@index');
 Route::get('/tasks/{task}', 'TaskController@show');
 
-Route::get('', 'PostsController@index');
+Route::get('/', 'PostsController@index');
 
 // we need:
 // 1. controller => PostsController
@@ -39,3 +39,6 @@ Route::get('', 'PostsController@index');
 
 // OR all together
 // php artisan make:model Post -mc
+// php artisan migrate
+
+Route::get('/posts/{post}', 'PostsController@show');
