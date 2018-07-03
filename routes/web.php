@@ -26,3 +26,16 @@ Route::get('/about', function () {
 // make nice and simple
 Route::get('/tasks', 'TaskController@index');
 Route::get('/tasks/{task}', 'TaskController@show');
+
+Route::get('', 'PostsController@index');
+
+// we need:
+// 1. controller => PostsController
+// php artisan make:controller Posts Controller
+// 2. elouqent model => Post 
+// php artisan make:model Post
+// 3. migration => create_posts_table
+// php artisan make:migration create_posts_table --create=posts
+
+// OR all together
+// php artisan make:model Post -mc
